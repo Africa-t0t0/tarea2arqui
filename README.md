@@ -10,3 +10,4 @@ faas-cli up -f tarea2arqui.yml
 http://localhost:31112
 ```
 ## Invocar la función.
+PD: Si muestra algún mensaje de error sobre la key Dolar, es porque no han actualizado el valor correspondiente al día de hoy.
