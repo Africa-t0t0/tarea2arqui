@@ -10,7 +10,10 @@ def handle(request):
     resuf = requests.get(urluf,verify=False)
     urlcru = "https://www.crucigrama.org/index.php?groupid=Nivel+2+medio%3A+Definiciones&Submit=Generar+nuevo&max_words=10&ActivarSopa=0&cols=15&rows=15"
     temp = (restemp.json())['main']['temp']
-    dolar = (resdolar.json())['Dolares']
+    if resdolar.status_code == 404:
+        dolar = "El valor del dolar no ha sido actualizado"
+    else:
+        dolar = (resdolar.json())['Dolares']
     uf = resuf.json()['UFs']
     cru = urlcru
     resp = ("Temperatura: ", temp, "C", "Dolar: ", dolar, "UF: ", uf, "Crucigrama: ", cru)
